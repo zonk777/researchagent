@@ -1,7 +1,7 @@
 [project]
-name = "korinagentflow"
+name = "researchagent"
 version = "0.1.0"
-description = "KorinAgentFlow: LLM-powered agent workflow built with LangGraph."
+description = "ResearchAgent: LLM-powered agent workflow built with LangGraph."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -18,10 +18,12 @@ dependencies = [
     "typer>=0.16.0",
     "rich>=13.0.0",
     "gradio>=5.0.0",
+    "arxiv>=2.2.0",
+    "semanticscholar>=0.8.0",
 ]
 
 [project.scripts]
-korinagentflow = "korinagentflow.cli.app:app"
+researchagent = "researchagent.cli.app:app"
 
 [dependency-groups]
 dev = [

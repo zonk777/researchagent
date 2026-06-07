@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from korinagentflow.core.state import RuntimeState
-from korinagentflow.tools.registry import build_read_only_tools, build_tools
+from researchagent.core.state import RuntimeState
+from researchagent.tools.registry import build_read_only_tools, build_tools
 
 
 def _make_state() -> RuntimeState:

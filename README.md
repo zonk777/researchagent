@@ -1,4 +1,4 @@
-# KorinAgentFlow
+# ResearchAgent
 
 从零构建的 LLM Agent 框架，基于 LangGraph 实现**规划-执行-反思**三阶段闭环。
 
@@ -22,8 +22,8 @@
 ### 安装
 
 ```bash
-git clone https://github.com/zonk777/korinagentflow.git
-cd korinagentflow
+git clone https://github.com/zonk777/researchagent.git
+cd researchagent
 uv sync
 ```
 
@@ -46,16 +46,16 @@ TAVILY_API_KEY=tvly-xxxxxxxx   # 从 https://tavily.com 获取
 
 ```bash
 # 命令行
-uv run korinagentflow run "计算 123 * 456"
-uv run korinagentflow run "搜索 Python 最新版本并总结"
+uv run researchagent run "计算 123 * 456"
+uv run researchagent run "搜索 Python 最新版本并总结"
 
 # Web 界面
 uv run python webui.py          # 访问 http://localhost:7860
 
 # 单独测试工具
-uv run korinagentflow tool-test -t calculator "sqrt(144)"
-uv run korinagentflow tool-test -t bash "dir"
-uv run korinagentflow tool-test -t search "LangGraph"
+uv run researchagent tool-test -t calculator "sqrt(144)"
+uv run researchagent tool-test -t bash "dir"
+uv run researchagent tool-test -t search "LangGraph"
 ```
 
 ### 测试
@@ -95,7 +95,7 @@ Python 3.13 / LangGraph / LanceDB / BGE-M3 / DeepSeek API / Gradio / Docker
 ## 项目结构
 
 ```
-src/korinagentflow/
+src/researchagent/
 ├── cli/           # CLI (Typer + Rich)
 ├── core/          # 状态、日志、重试、Token追踪、LLM工厂
 ├── graph/         # LangGraph 4 节点 pipeline

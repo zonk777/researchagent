@@ -16,8 +16,8 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from korinagentflow.graph import build_agent_graph
-from korinagentflow.core.state import RuntimeState
+from researchagent.graph import build_agent_graph
+from researchagent.core.state import RuntimeState
 from benchmarks.e2e_bench import check_result, count_tool_calls, extract_final_output, load_tasks
 
 
@@ -96,8 +96,8 @@ def _run_full(task: dict, state: RuntimeState) -> dict:
 def _run_no_reflector(task: dict, state: RuntimeState) -> dict:
     """用 Step 4 的 2 节点图 (无 planner + reflector)。"""
     from langgraph.graph import END, START, StateGraph
-    from korinagentflow.graph.nodes import agent_node, tools_node, route_after_agent
-    from korinagentflow.graph.state import AgentState
+    from researchagent.graph.nodes import agent_node, tools_node, route_after_agent
+    from researchagent.graph.state import AgentState
 
     graph = StateGraph(AgentState)
     graph.add_node("agent", agent_node)
@@ -119,8 +119,8 @@ def _run_no_reflector(task: dict, state: RuntimeState) -> dict:
 def _run_no_planner(task: dict, state: RuntimeState) -> dict:
     """用带 reflector 但跳过 planner 的图。"""
     from langgraph.graph import END, START, StateGraph
-    from korinagentflow.graph.nodes import agent_node, tools_node, route_after_agent, reflector_node, reflector_route
-    from korinagentflow.graph.state import AgentState
+    from researchagent.graph.nodes import agent_node, tools_node, route_after_agent, reflector_node, reflector_route
+    from researchagent.graph.state import AgentState
 
     graph = StateGraph(AgentState)
     graph.add_node("agent", agent_node)
@@ -151,11 +151,11 @@ def _run_no_memory(task: dict, state: RuntimeState) -> dict:
     """用完整图但不注入长期记忆上下文。"""
     # 通过环境变量临时禁用记忆
     import os
-    os.environ["KORIN_SKIP_MEMORY"] = "1"
+    os.environ["RESEARCH_SKIP_MEMORY"] = "1"
     try:
         result = _run_full(task, state)
     finally:
-        os.environ.pop("KORIN_SKIP_MEMORY", None)
+        os.environ.pop("RESEARCH_SKIP_MEMORY", None)
     return result
 
 

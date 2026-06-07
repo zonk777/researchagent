@@ -1,4 +1,4 @@
-"""对比实验: korinagentflow vs LangChain 原生 create_react_agent。
+"""对比实验: researchagent vs LangChain 原生 create_react_agent。
 
 对相同的 10 个 Benchmark 任务分别用两套 Agent 执行并对比结果。
 """
@@ -64,9 +64,9 @@ def check_result(task: dict, output: str) -> bool:
 # KorinAgentFlow Agent
 # ============================================================
 
-def run_korinagentflow(task: dict) -> dict:
-    from korinagentflow.graph import build_agent_graph
-    from korinagentflow.core.state import RuntimeState
+def run_researchagent(task: dict) -> dict:
+    from researchagent.graph import build_agent_graph
+    from researchagent.core.state import RuntimeState
 
     graph = build_agent_graph()
     state = RuntimeState(workspace=Path.cwd())
@@ -104,9 +104,9 @@ def run_korinagentflow(task: dict) -> dict:
 
 def run_langchain_react(task: dict) -> dict:
     from langgraph.prebuilt import create_react_agent
-    from korinagentflow.providers.openai_provider import create_model
-    from korinagentflow.tools.registry import build_tools
-    from korinagentflow.core.state import RuntimeState
+    from researchagent.providers.openai_provider import create_model
+    from researchagent.tools.registry import build_tools
+    from researchagent.core.state import RuntimeState
 
     state = RuntimeState(workspace=Path.cwd())
     model = create_model()
@@ -148,7 +148,7 @@ def main() -> None:
 
         # KorinAgentFlow
         try:
-            r1 = run_korinagentflow(task)
+            r1 = run_researchagent(task)
             p1 = check_result(task, r1["output"])
             if p1:
                 korin_passed += 1
@@ -174,10 +174,10 @@ def main() -> None:
     n = len(tasks)
     comparison = {
         "framework": {
-            "korinagentflow": f"{korin_passed}/{n} ({korin_passed/n*100:.0f}%)",
+            "researchagent": f"{korin_passed}/{n} ({korin_passed/n*100:.0f}%)",
             "langchain_react": f"{lc_passed}/{n} ({lc_passed/n*100:.0f}%)",
         },
-        "korinagentflow": {
+        "researchagent": {
             "avg_elapsed_s": round(sum(r.get("elapsed_s", 0) for r in korin_results) / n, 1),
             "avg_iterations": round(sum(r.get("iterations", 0) for r in korin_results) / n, 1),
             "avg_tool_calls": round(sum(r.get("tool_calls", 0) for r in korin_results) / n, 1),
@@ -188,7 +188,7 @@ def main() -> None:
             "avg_tool_calls": round(sum(r.get("tool_calls", 0) for r in lc_results) / n, 1),
         },
         "details": {
-            "korinagentflow": korin_results,
+            "researchagent": korin_results,
             "langchain_react": lc_results,
         },
     }

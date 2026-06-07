@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from korinagentflow.tools.calculator_tool import evaluate
+from researchagent.tools.calculator_tool import evaluate
 
 
 def test_basic_arithmetic() -> None:

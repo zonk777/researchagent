@@ -5,8 +5,8 @@ from __future__ import annotations
 import platform
 from pathlib import Path
 
-from korinagentflow.core.state import RuntimeState
-from korinagentflow.tools.bash_tool import (
+from researchagent.core.state import RuntimeState
+from researchagent.tools.bash_tool import (
     _looks_dangerous,
     _normalize_command,
     bash_tool_description,

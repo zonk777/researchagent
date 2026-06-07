@@ -12,8 +12,8 @@ from __future__ import annotations
 from pathlib import Path
 from unittest.mock import patch
 
-from korinagentflow.core.state import RuntimeState
-from korinagentflow.graph.workflow import build_agent_graph
+from researchagent.core.state import RuntimeState
+from researchagent.graph.workflow import build_agent_graph
 
 
 def _make_state(**overrides) -> dict:
@@ -113,7 +113,7 @@ def test_messages_accumulate() -> None:
 def test_cli_help_output() -> None:
     """验证 CLI 帮助输出。"""
     from typer.testing import CliRunner
-    from korinagentflow.cli.app import app
+    from researchagent.cli.app import app
 
     runner = CliRunner()
     result = runner.invoke(app, ["run", "--help"])
@@ -124,7 +124,7 @@ def test_cli_help_output() -> None:
 def test_cli_test_command() -> None:
     """验证 test 命令可调用。"""
     from typer.testing import CliRunner
-    from korinagentflow.cli.app import app
+    from researchagent.cli.app import app
 
     runner = CliRunner()
     result = runner.invoke(app, ["test", "--help"])
@@ -134,7 +134,7 @@ def test_cli_test_command() -> None:
 def test_cli_tool_test_command() -> None:
     """验证 tool-test 命令可调用。"""
     from typer.testing import CliRunner
-    from korinagentflow.cli.app import app
+    from researchagent.cli.app import app
 
     runner = CliRunner()
     result = runner.invoke(app, ["tool-test", "--help"])
@@ -144,7 +144,7 @@ def test_cli_tool_test_command() -> None:
 def test_cli_memory_test_command() -> None:
     """验证 memory-test 命令可调用。"""
     from typer.testing import CliRunner
-    from korinagentflow.cli.app import app
+    from researchagent.cli.app import app
 
     runner = CliRunner()
     result = runner.invoke(app, ["memory-test", "--help"])

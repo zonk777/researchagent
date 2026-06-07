@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from korinagentflow.memory.short_term import ConversationBuffer
+from researchagent.memory.short_term import ConversationBuffer
 
 
 class FakeLLM:

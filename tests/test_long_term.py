@@ -11,7 +11,7 @@ from pathlib import Path
 
 import pytest
 
-from korinagentflow.memory.long_term import LongTermMemory
+from researchagent.memory.long_term import LongTermMemory
 
 
 @pytest.fixture

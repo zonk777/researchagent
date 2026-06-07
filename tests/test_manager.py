@@ -7,8 +7,8 @@ from pathlib import Path
 
 import pytest
 
-from korinagentflow.core.state import RuntimeState
-from korinagentflow.memory.manager import MemoryManager
+from researchagent.core.state import RuntimeState
+from researchagent.memory.manager import MemoryManager
 
 
 class FakeLLM:

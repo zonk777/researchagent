@@ -9,8 +9,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from korinagentflow.graph import build_agent_graph
-from korinagentflow.core.state import RuntimeState
+from researchagent.graph import build_agent_graph
+from researchagent.core.state import RuntimeState
 
 
 def main() -> None:

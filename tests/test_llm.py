@@ -9,8 +9,8 @@ from __future__ import annotations
 
 from typer.testing import CliRunner
 
-from korinagentflow.cli.app import app
-from korinagentflow.providers.openai_provider import create_model
+from researchagent.cli.app import app
+from researchagent.providers.openai_provider import create_model
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -23,7 +23,7 @@ def test_cli_no_args_shows_help() -> None:
     runner = CliRunner()
     result = runner.invoke(app, [])
     assert result.exit_code == 0
-    assert "korinagentflow" in result.output.lower()
+    assert "researchagent" in result.output.lower()
 
 
 def test_cli_test_command_help() -> None:

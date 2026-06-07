@@ -21,7 +21,7 @@ COPY src/ src/
 COPY webui.py ./
 
 # 预创建运行时目录
-RUN mkdir -p /app/.korinagentflow/memory
+RUN mkdir -p /app/.researchagent/memory
 
 # 暴露 Web UI 端口
 EXPOSE 7860

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from korinagentflow.tools.web_search_tool import web_search
+from researchagent.tools.web_search_tool import web_search
 
 
 def test_web_search_missing_api_key(monkeypatch) -> None:

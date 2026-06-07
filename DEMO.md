@@ -1,4 +1,4 @@
-# KorinAgentFlow Demo 指南
+# ResearchAgent Demo 指南
 
 ## 环境准备
 
@@ -15,7 +15,7 @@ uv sync
 
 ```bash
 # CLI 方式
-uv run korinagentflow run "计算 (123 + 456) * 789"
+uv run researchagent run "计算 (123 + 456) * 789"
 
 # 脚本方式
 uv run python demos/demo_calculate.py
@@ -27,7 +27,7 @@ uv run python demos/demo_calculate.py
 
 ```bash
 # CLI 方式
-uv run korinagentflow run "搜索 LangGraph 最新版本和主要特性，用中文总结"
+uv run researchagent run "搜索 LangGraph 最新版本和主要特性，用中文总结"
 
 # 脚本方式
 uv run python demos/demo_research.py
@@ -39,7 +39,7 @@ uv run python demos/demo_research.py
 
 ```bash
 # CLI 方式
-uv run korinagentflow run "列出当前项目目录下的所有 Python 文件"
+uv run researchagent run "列出当前项目目录下的所有 Python 文件"
 
 # 脚本方式
 uv run python demos/demo_file_ops.py
@@ -50,7 +50,7 @@ uv run python demos/demo_file_ops.py
 ## 多工具组合
 
 ```bash
-uv run korinagentflow run "搜索 DeepSeek V4 的最新消息，然后用计算器算一下它发布距今多少天"
+uv run researchagent run "搜索 DeepSeek V4 的最新消息，然后用计算器算一下它发布距今多少天"
 ```
 
 **预期效果：** Agent 先搜索（WebSearchTool），再计算（CalculatorTool），最后给出综合回答。

@@ -10,13 +10,13 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from korinagentflow.core.state import RuntimeState
-from korinagentflow.graph.state import AgentState
-from korinagentflow.graph.nodes import (
+from researchagent.core.state import RuntimeState
+from researchagent.graph.state import AgentState
+from researchagent.graph.nodes import (
     reflector_route,
     route_after_agent,
 )
-from korinagentflow.graph.workflow import build_agent_graph
+from researchagent.graph.workflow import build_agent_graph
 
 
 def _make_state(**overrides) -> AgentState:

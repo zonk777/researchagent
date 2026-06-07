@@ -1,4 +1,4 @@
-"""KorinAgentFlow Chat Web UI.
+"""ResearchAgent Chat Web UI.
 
 Usage: uv run python webui.py
 Visit: http://localhost:7860
@@ -22,10 +22,10 @@ if (_cache_dir / "snapshots").is_dir():
 
 import gradio as gr  # noqa: E402
 
-from korinagentflow.graph import build_agent_graph  # noqa: E402
-from korinagentflow.core.state import RuntimeState  # noqa: E402
+from researchagent.graph import build_agent_graph  # noqa: E402
+from researchagent.core.state import RuntimeState  # noqa: E402
 
-HISTORY_DIR = Path(__file__).parent / ".korinagentflow" / "chats"
+HISTORY_DIR = Path(__file__).parent / ".researchagent" / "chats"
 HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -96,7 +96,7 @@ def run_agent(
 
     # 初始化
     progress(0.05, desc="正在初始化...")
-    from korinagentflow.core.tracker import TokenTracker
+    from researchagent.core.tracker import TokenTracker
 
     state = RuntimeState(workspace=Path.cwd())
     tracker = TokenTracker()
@@ -233,8 +233,8 @@ CSS = """
 footer { display: none !important; }
 """
 
-with gr.Blocks(title="KorinAgentFlow") as app:
-    gr.Markdown("# 🤖 KorinAgentFlow\nLLM 驱动的 ReAct Agent — 规划 + 执行 + 反思")
+with gr.Blocks(title="ResearchAgent") as app:
+    gr.Markdown("# 🔬 ResearchAgent\n学术调研 Agent — 论文搜索 + 分析 + 综述生成")
 
     session_state = gr.State("")
     cancel_state = gr.State([False])
@@ -366,7 +366,7 @@ with gr.Blocks(title="KorinAgentFlow") as app:
     )
 
 if __name__ == "__main__":
-    from korinagentflow.core.logging_config import setup_logging  # noqa: E402
+    from researchagent.core.logging_config import setup_logging  # noqa: E402
     setup_logging()
     app.launch(
         server_name="127.0.0.1",
