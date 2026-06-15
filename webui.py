@@ -88,7 +88,6 @@ def execute_task(task, cancel_flag, progress=gr.Progress()):
     """执行 Agent 任务，返回 (final_answer, report_html, token_summary)"""
     progress(0.10, desc="正在初始化...")
     from researchagent.core.tracker import TokenTracker
-
     state = RuntimeState(workspace=Path.cwd())
     tracker = TokenTracker()
     object.__setattr__(state, "_token_tracker", tracker)

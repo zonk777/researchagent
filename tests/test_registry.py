@@ -12,22 +12,22 @@ def _make_state() -> RuntimeState:
     return RuntimeState(workspace=Path.cwd())
 
 
-def test_build_tools_returns_three_tools() -> None:
-    """验证 build_tools 返回 3 个工具。"""
+def test_build_tools_returns_five_tools() -> None:
+    """验证 build_tools 返回 5 个工具。"""
     state = _make_state()
     tools = build_tools(state)
-    assert len(tools) == 3
+    assert len(tools) == 5
     names = {t.name for t in tools}
-    assert names == {"CalculatorTool", "BashTool", "WebSearchTool"}
+    assert names == {"ArxivSearchTool", "SemanticScholarTool", "CalculatorTool", "BashTool", "WebSearchTool"}
 
 
-def test_build_read_only_tools_returns_two_tools() -> None:
-    """验证 build_read_only_tools 返回 2 个工具 (不含 BashTool)。"""
+def test_build_read_only_tools_returns_four_tools() -> None:
+    """验证 build_read_only_tools 返回 4 个工具 (不含 BashTool)。"""
     state = _make_state()
     tools = build_read_only_tools(state)
-    assert len(tools) == 2
+    assert len(tools) == 4
     names = {t.name for t in tools}
-    assert names == {"CalculatorTool", "WebSearchTool"}
+    assert names == {"ArxivSearchTool", "SemanticScholarTool", "CalculatorTool", "WebSearchTool"}
 
 
 def test_tools_have_description() -> None:

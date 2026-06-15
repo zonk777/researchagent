@@ -535,13 +535,11 @@ def research_command(
     """学术调研：搜索论文并生成文献综述 + 参考文献。"""
     from researchagent.graph import build_agent_graph
     from researchagent.core.tracker import TokenTracker
-    from researchagent.research.tools.registry import build_research_tools
 
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
     state = RuntimeState(workspace=output_path)
-    object.__setattr__(state, "tool_builder", build_research_tools)
 
     tracker = TokenTracker()
     object.__setattr__(state, "_token_tracker", tracker)
